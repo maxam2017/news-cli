@@ -1,10 +1,23 @@
 import React from 'react';
-import { Text } from 'ink';
+import { Static, Text } from 'ink';
+import Spinner from 'ink-spinner';
+import NewsEntry from '../components/news-entry';
+import useNews from '../hooks/use-news';
 
 export default function App() {
+  const { data, status } = useNews();
+
+  if (status === 'loading') {
+    return (
+      <Text color="white">
+        <Spinner type="dots" /> fetching
+      </Text>
+    );
+  }
+
   return (
-    <Text>
-      Hello <Text color="#06c755">World</Text>
-    </Text>
+    <Static items={data}>
+      {item => <NewsEntry key={item.id} item={item} />}
+    </Static>
   );
 }

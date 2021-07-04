@@ -8,5 +8,5 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["commands", "__test__"]
+  "include": ["commands", "components", "__test__"]
 }
