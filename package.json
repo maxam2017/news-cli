@@ -1,0 +1,54 @@
+{
+  "name": "news",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "maxam2017",
+  "license": "MIT",
+  "bin": "./build/cli.js",
+  "files": [
+    "./build/cli.js"
+  ],
+  "scripts": {
+    "prepare": "pastel build",
+    "dev": "pastel dev",
+    "build": "pastel build",
+    "lint": "xo",
+    "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "xo": {
+    "extends": "xo-react",
+    "prettier": true,
+    "rules": {
+      "react/prop-types": "off",
+      "react/function-component-definition": "off"
+    }
+  },
+  "dependencies": {
+    "ink": "^3.0.8",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^1.1.1",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "@types/react": "^17.0.13",
+    "babel-jest": "^27.0.6",
+    "chalk": "^4.1.1",
+    "eslint-config-xo-react": "^0.25.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ink-testing-library": "^2.1.0",
+    "jest": "^27.0.6",
+    "pastel": "^1.1.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5",
+    "xo": "^0.40.3"
+  }
+}
