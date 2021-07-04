@@ -22,7 +22,7 @@ const MOCK_NEWS: News = {
 
 test('title and excerpt should be contained', () => {
   const { lastFrame } = render(<NewsEntry item={MOCK_NEWS} />);
-  const result = lastFrame()?.replace(ANSI_REGEXP, '').replaceAll('\n', '');
+  const result = lastFrame()?.replace(ANSI_REGEXP, '')?.replaceAll('\n', '');
   expect(result).toMatch(MOCK_NEWS.title);
   expect(result).toMatch(MOCK_NEWS.excerpt);
 });
