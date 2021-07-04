@@ -1,10 +1,12 @@
 {
-  "name": "news-cli",
+  "name": "@maxam2017/news-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/cli.js",
   "author": "maxam2017",
   "license": "MIT",
-  "bin": "./build/cli.js",
+  "bin": {
+    "news-cli": "./build/cli.js"
+  },
   "files": [
     "./build/cli.js"
   ],
