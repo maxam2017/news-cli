@@ -9,7 +9,7 @@
 </p>
 
 ## Overview
-![demo](https://i.imgur.com/1aF7IDb.gif)
+![demo](https://i.imgur.com/Av2llPY.gif)
 
 ## License
 Distributed under the MIT License. See `license` for more information.
