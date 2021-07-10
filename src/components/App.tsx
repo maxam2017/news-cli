@@ -1,8 +1,8 @@
 import React from 'react';
 import { Static, Text } from 'ink';
 import Spinner from 'ink-spinner';
-import NewsEntry from '../components/news-entry';
 import useNews from '../hooks/use-news';
+import NewsEntry from './news-entry';
 
 export default function App() {
   const { data, status } = useNews();

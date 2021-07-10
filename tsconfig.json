@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "target": "es2015",
-    "module": "esnext",
+    "module": "commonjs",
+    "outDir": "build",
+    "rootDir": "src",
     "strict": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "jsx": "react",
+    "strictNullChecks": true,
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true
   },
-  "include": ["commands", "components", "__test__"]
+  "include": ["src", "../__test__"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

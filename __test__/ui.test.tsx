@@ -1,8 +1,8 @@
 import React from 'react';
 import { test, expect } from '@jest/globals';
 import { render } from 'ink-testing-library';
-import NewsEntry from '../components/news-entry';
-import { News } from '../types';
+import NewsEntry from '../src/components/news-entry';
+import { News } from '../src/types';
 
 // https://github.com/chalk/ansi-regex/blob/main/index.js#L3
 const ANSI_REGEXP =
