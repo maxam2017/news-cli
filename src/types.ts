@@ -26,3 +26,11 @@ export interface News {
   url: string;
   thumbnail: string;
 }
+
+export interface Tab {
+  id: string;
+  portalPageId: string;
+  name: string;
+  portalPageUrlPath: string;
+  fontColor: string;
+}

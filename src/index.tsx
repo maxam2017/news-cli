@@ -1,8 +1,9 @@
 import parseArgs from 'minimist';
 import React from 'react';
 import { render } from 'ink';
-import App from './components/app';
+
 import Help from './components/help';
+import TabsView from './components/tabs-view';
 
 const argv = parseArgs(process.argv.slice(2), {
   boolean: ['help'],
@@ -12,5 +13,5 @@ const argv = parseArgs(process.argv.slice(2), {
 if (argv.h) {
   render(<Help />);
 } else {
-  render(<App />);
+  render(<TabsView />);
 }
