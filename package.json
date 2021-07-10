@@ -3,6 +3,21 @@
   "version": "0.0.1",
   "author": "maxam2017",
   "license": "MIT",
+  "description": "news headlines in CLI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxam2017/news-cli.git"
+  },
+  "homepage": "https://github.com/maxam2017/news-cli#readme",
+  "keywords": [
+    "news",
+    "cli",
+    "ink",
+    "terminal"
+  ],
+  "bugs": {
+    "url": "https://github.com/maxam2017/news-cli/issues"
+  },
   "bin": {
     "news": "bin/news"
   },
@@ -29,6 +44,7 @@
     "prettier": true,
     "rules": {
       "react/prop-types": "off",
+      "react-hooks/exhaustive-deps": "off",
       "react/function-component-definition": "off",
       "no-control-regex": "off",
       "unicorn/better-regex": "off",
@@ -38,8 +54,10 @@
   "dependencies": {
     "date-fns": "^2.22.1",
     "ink": "^3.0.8",
+    "ink-gradient": "^2.0.0",
     "ink-link": "^2.0.0",
     "ink-spinner": "^4.0.2",
+    "minimist": "^1.2.5",
     "node-fetch": "^2.6.1",
     "react": "^17.0.2"
   },
@@ -50,6 +68,7 @@
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
     "@jest/globals": "^27.0.6",
+    "@types/ink-gradient": "^2.0.1",
     "@types/node-fetch": "^2.5.10",
     "@types/react": "^17.0.13",
     "babel-jest": "^27.0.6",
@@ -60,7 +79,6 @@
     "husky": "^7.0.0",
     "ink-testing-library": "^2.1.0",
     "jest": "^27.0.6",
-    "ts-node": "^10.0.0",
     "tsc": "^2.0.3",
     "typescript": "^4.3.5",
     "xo": "^0.40.3"
