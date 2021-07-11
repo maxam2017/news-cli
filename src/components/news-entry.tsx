@@ -15,7 +15,7 @@ export default function NewsEntry({ item }: Props) {
           {item.title}
         </Text>
       </Link>
-      <Text dimColor>
+      <Text>
         {item.excerpt}
         {'\n'}
       </Text>

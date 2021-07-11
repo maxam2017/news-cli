@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import Spinner from 'ink-spinner';
 import chunk from 'lodash.chunk';
 import { Text, Box, useInput } from 'ink';
-import useFetch from '../hooks/use-fetch';
+import useTab from '../hooks/use-tab';
 import { Tab } from '../types';
 import { useConfigSetter } from '../hooks/use-config';
 
 const COL = 6;
 
 export default function TabsView() {
-  const { status, data } = useFetch<Tab[]>(
-    'https://today.line.me/api/v6/portals/tw/tabs',
-  );
+  const { status, data } = useTab();
 
   const [index, setIndex] = useState(0);
   const setter = useConfigSetter();
