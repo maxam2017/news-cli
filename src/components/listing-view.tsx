@@ -4,16 +4,19 @@ import Spinner from 'ink-spinner';
 import useListing from '../hooks/use-listing';
 import NewsEntry from './news-entry';
 
-export default function ListingView() {
-  const { data, status } = useListing('66d43f54-6e45-4231-81d8-9b132a897254', {
-    offset: 0,
-    length: 5,
-  });
+interface Props {
+  listingId: string;
+  offset: number;
+  length: number;
+}
+
+export default function ListingView({ listingId, ...parameters }: Props) {
+  const { data, status } = useListing(listingId, parameters);
 
   if (status === 'loading') {
     return (
       <Text color="white">
-        <Spinner type="dots" /> fetching
+        <Spinner type="dots" />
       </Text>
     );
   }

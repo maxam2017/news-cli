@@ -1,4 +1,4 @@
-import { useEffect, useReducer, Reducer, useMemo } from 'react';
+import { useEffect, useReducer, Reducer, useMemo, useRef } from 'react';
 import fetch from 'node-fetch';
 
 type State<T> = {
@@ -39,6 +39,7 @@ export default function useFetch<T = unknown, S = T>(
   url: string,
   options?: { transform?(raw: S): T },
 ) {
+  const optionsRef = useRef(options);
   const [state, dispatch] = useReducer<APIReducer<T>>(
     (state, action) => {
       switch (action.type) {
@@ -68,13 +69,14 @@ export default function useFetch<T = unknown, S = T>(
         const data = (await response.json()) as S;
         dispatch({
           type: 'FETCHED',
-          payload: options?.transform?.(data) ?? (data as unknown as T),
+          payload:
+            optionsRef.current?.transform?.(data) ?? (data as unknown as T),
         });
       } catch {
         dispatch({ type: 'ERROR' });
       }
     })();
-  }, [url, options?.transform]);
+  }, [url]);
 
   return useMemo(
     () => ({

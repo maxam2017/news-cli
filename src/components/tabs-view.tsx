@@ -4,6 +4,7 @@ import chunk from 'lodash.chunk';
 import { Text, Box, useInput } from 'ink';
 import useFetch from '../hooks/use-fetch';
 import { Tab } from '../types';
+import { useConfigSetter } from '../hooks/use-config';
 
 const COL = 6;
 
@@ -13,6 +14,7 @@ export default function TabsView() {
   );
 
   const [index, setIndex] = useState(0);
+  const setter = useConfigSetter();
 
   useInput((input, key) => {
     if (!data) return;
@@ -45,6 +47,10 @@ export default function TabsView() {
 
     if (key.downArrow || input.toLowerCase() === 's') {
       setIndex(i => (i + COL > data.length - 1 ? i % COL : i + COL));
+    }
+
+    if (key.return) {
+      setter({ page: 'page', extra: data[index].portalPageId });
     }
   });
 
