@@ -1,6 +1,6 @@
 {
   "name": "@maxam2017/news-cli",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "author": "maxam2017",
   "license": "MIT",
   "description": "news headlines in CLI",

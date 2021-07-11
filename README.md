@@ -2,17 +2,17 @@
 
 Watch **LINE TODAY** News via CLI.
 
-## Usage
+## Install
 Ensure you have [Node.js](https://nodejs.org) version 12.20+ installed. Then run the following:
 
 ```bash
 $ npm i -g @maxam2017/news-cli
-$ news
 ```
 
-or run without installation
+## Usage
+
 ```bash
-$ npx @maxam2017/news-cli
+$ news
 ```
 
 ## Functions
