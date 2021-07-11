@@ -1,15 +1,37 @@
-<p align="center">
-  <h3 align="center">✨ news-cli</h3>
-</p>
+# ✨ news-cli
 
-<p align="center">
-  <img src="https://img.shields.io/github/workflow/status/maxam2017/news-cli/deploy?style=flat-square">
-  <img src="https://img.shields.io/badge/language-typescript-blue?style=flat-square"/>
-  <img src="https://img.shields.io/github/license/maxam2017/news-cli?style=flat-square"/>
-</p>
+Watch **LINE TODAY** News via CLI.
 
-## Overview
-![demo](https://i.imgur.com/Av2llPY.gif)
+## Installation
+
+Ensure you have [Node.js](https://nodejs.org) version 12.20+ installed. Then run the following:
+
+```bash
+$ npm i -g @maxam2017/news-cli
+```
+
+## Usage
+
+```bash
+$ news
+```
+
+## Functions
+### tabs
+> use the arrow keys (or WASD) to select the type of news you want to watch, then press Enter...
+
+![demo](https://imgur.com/s2PSyc5.gif)
+
+### page viewer
+> use the left arrow (A) or right arrow (D) key to switch between the previous page and the next page.
+
+![demo](https://i.imgur.com/hY3yNPt.gif)
+
+### shortcut cheat sheet
+> show cheat sheet when press `?`
+
+![demo](https://i.imgur.com/hYk5KtC.gif)
+
 
 ## License
-Distributed under the MIT License. See `license` for more information.
+Distributed under the [MIT License](https://choosealicense.com/licenses/mit/). See `license` for more information.

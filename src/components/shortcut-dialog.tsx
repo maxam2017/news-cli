@@ -27,7 +27,7 @@ export default function ShortcutDialog() {
         <Text>
           {page === 'tab'
             ? 'Please use the arrow keys (or WASD) to select the type of news you want to watch, then press Enter...'
-            : 'Please use the left arrow (A) or right arrow (D) key to switch between the previous page and the next page. '}
+            : 'Please use the left arrow (A) or right arrow (D) key to switch between the previous page and the next page.'}
         </Text>
       </Box>
     </Box>
