@@ -9,16 +9,13 @@ interface Props {
 
 export default function NewsEntry({ item }: Props) {
   return (
-    <Box flexDirection="column" width={80}>
+    <Box flexDirection="column" width={80} margin={1}>
       <Link url={item.url}>
         <Text bold color="#006aa6">
           {item.title}
         </Text>
       </Link>
-      <Text>
-        {item.excerpt}
-        {'\n'}
-      </Text>
+      <Text dimColor>{item.excerpt}</Text>
     </Box>
   );
 }

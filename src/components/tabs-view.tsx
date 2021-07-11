@@ -75,7 +75,7 @@ const TabItem = ({ item, active }: { item: Tab; active: boolean }) => {
       paddingX={1}
       marginRight={1}>
       <Text bold={active} color={active ? 'cyan' : 'white'}>
-        {item.name}
+        {item.portalPageUrlPath}
       </Text>
     </Box>
   );

@@ -19,17 +19,17 @@ $ npx @maxam2017/news-cli
 ### tabs
 > use the arrow keys (or WASD) to select the type of news you want to watch, then press Enter...
 
-![demo](https://imgur.com/s2PSyc5.gif)
+![demo](https://imgur.com/yVZW7Gx.gif)
 
 ### page viewer
 > use the left arrow (A) or right arrow (D) key to switch between the previous page and the next page.
 
-![demo](https://i.imgur.com/hY3yNPt.gif)
+![demo](https://imgur.com/doHebWM.gif)
 
 ### shortcut cheat sheet
 > show cheat sheet when press `?`
 
-![demo](https://i.imgur.com/hYk5KtC.gif)
+![demo](https://imgur.com/RrIiMrx.png)
 
 
 ## License
