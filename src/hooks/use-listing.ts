@@ -26,6 +26,7 @@ export default function useListing(
           thumbnail: `https://obs.line-scdn.net/${raw.thumbnail.hash}`,
           url: `https://today.line.me/tw/v2/article/${raw.url.hash}`,
         })),
+      refresh: true,
     },
   );
 }

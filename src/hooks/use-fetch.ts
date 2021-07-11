@@ -7,6 +7,7 @@ type State<T> = {
 };
 
 type ACTIONTYPE<T> =
+  | { type: 'INIT' }
   | { type: 'LOADING' }
   | { type: 'FETCHED'; payload: T }
   | { type: 'ERROR' };
@@ -37,12 +38,14 @@ function merge<T>(a: T, b: T): T {
  */
 export default function useFetch<T = unknown, S = T>(
   url: string,
-  options?: { transform?(raw: S): T },
+  options?: { refresh?: boolean; transform?(raw: S): T },
 ) {
   const optionsRef = useRef(options);
   const [state, dispatch] = useReducer<APIReducer<T>>(
     (state, action) => {
       switch (action.type) {
+        case 'INIT':
+          return { status: 'init' };
         case 'LOADING':
           return { ...state, status: 'loading' };
         case 'FETCHED':
@@ -62,6 +65,10 @@ export default function useFetch<T = unknown, S = T>(
   );
 
   useEffect(() => {
+    if (options?.refresh) {
+      dispatch({ type: 'INIT' });
+    }
+
     (async () => {
       dispatch({ type: 'LOADING' });
       try {

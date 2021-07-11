@@ -65,4 +65,4 @@ interface Page {
   listings: Listing[];
 }
 
-export { RawNews, RawPage, News, Page, Tab };
+export { RawNews, RawPage, News, Page, Tab, Listing };

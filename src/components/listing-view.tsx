@@ -1,5 +1,5 @@
 import React from 'react';
-import { Static, Text } from 'ink';
+import { Box, Text } from 'ink';
 import Spinner from 'ink-spinner';
 import useListing from '../hooks/use-listing';
 import NewsEntry from './news-entry';
@@ -22,8 +22,10 @@ export default function ListingView({ listingId, ...parameters }: Props) {
   }
 
   return (
-    <Static items={data ?? []}>
-      {item => <NewsEntry key={item.id} item={item} />}
-    </Static>
+    <Box flexDirection="column">
+      {data?.map(item => (
+        <NewsEntry key={item.id} item={item} />
+      ))}
+    </Box>
   );
 }
