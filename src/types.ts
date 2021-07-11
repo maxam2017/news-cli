@@ -22,7 +22,7 @@ interface News {
   title: string;
   excerpt: string;
   publisher: string;
-  publishedAt: string;
+  publishedAt?: string;
   url: string;
   thumbnail: string;
 }
@@ -47,7 +47,7 @@ interface Module {
   id: string;
   type: string;
   name: string;
-  source: string;
+  source: 'LISTING' | 'BANNER' | 'COMBO' | 'AD' | 'CAT_FORYOU';
   color: string;
   listings: Listing[];
   adArticleListing?: Listing[];

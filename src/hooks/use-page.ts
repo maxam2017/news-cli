@@ -11,7 +11,15 @@ export default function usePage(portalPageId: string) {
         id: page.id,
         name: page.name,
         listings: uniqby(
-          page.modules.flatMap(m => m.listings).filter(Boolean),
+          page.modules
+            .filter(m => m.source === 'LISTING' && Array.isArray(m.listings))
+            .flatMap(m =>
+              m.listings.map(listing => ({
+                id: listing.id,
+                offset: listing.offset,
+                length: listing.length,
+              })),
+            ),
           'id',
         ),
       };

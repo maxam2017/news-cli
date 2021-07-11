@@ -12,20 +12,20 @@ export default function useListing(
     `${baseUrl}/${listingId}?offset=${parameters.offset}&length=${parameters.length}`,
     {
       transform: data =>
-        data.items
-          .filter(item => item.shortDescription)
-          .map(raw => ({
-            id: raw.id,
-            title: raw.title,
-            excerpt: raw.shortDescription,
-            publisher: raw.publisher,
+        data.items.map(raw => ({
+          id: raw.id,
+          title: raw.title,
+          excerpt: raw.shortDescription,
+          publisher: raw.publisher,
+          ...(raw.publishTimeUnix && {
             publishedAt: format(
               new Date(raw.publishTimeUnix),
               'yyyy-MM-dd HH:mm:ss',
             ),
-            thumbnail: `https://obs.line-scdn.net/${raw.thumbnail.hash}`,
-            url: `https://today.line.me/tw/v2/article/${raw.url.hash}`,
-          })),
+          }),
+          thumbnail: `https://obs.line-scdn.net/${raw.thumbnail.hash}`,
+          url: `https://today.line.me/tw/v2/article/${raw.url.hash}`,
+        })),
     },
   );
 }
