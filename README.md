@@ -19,7 +19,7 @@ $ news
 ### tabs
 > use the arrow keys (or WASD) to select the type of news you want to watch, then press Enter...
 
-![demo](https://imgur.com/yVZW7Gx.gif)
+![demo](https://imgur.com/hJI4tgP.gif)
 
 ### page viewer
 > use the left arrow (A) or right arrow (D) key to switch between the previous page and the next page.
