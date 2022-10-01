@@ -3,10 +3,10 @@ import Spinner from 'ink-spinner';
 import chunk from 'lodash.chunk';
 import { Text, Box, useInput } from 'ink';
 import useTab from '../hooks/use-tab';
-import { Tab } from '../types';
+import type { Tab } from '../types';
 import { useConfigSetter } from '../hooks/use-config';
 
-const COL = 6;
+const Col = 6;
 
 export default function TabsView() {
   const { status, data } = useTab();
@@ -18,37 +18,37 @@ export default function TabsView() {
     if (!data) return;
     if (key.leftArrow || input.toLowerCase() === 'a') {
       setIndex(i =>
-        i % COL === 0 ? Math.min(i + COL - 1, data.length - 1) : i - 1,
+        i % Col === 0 ? Math.min(i + Col - 1, data.length - 1) : i - 1,
       );
     }
 
     if (key.rightArrow || input.toLowerCase() === 'd') {
       setIndex(i =>
-        i % COL === COL - 1
-          ? Math.max(0, i - COL + 1)
+        i % Col === Col - 1
+          ? Math.max(0, i - Col + 1)
           : i + 1 > data.length - 1
-          ? Math.floor(data.length / COL) * COL
+          ? Math.floor(data.length / Col) * Col
           : i + 1,
       );
     }
 
     if (key.upArrow || input.toLowerCase() === 'w') {
       setIndex(i => {
-        const base = Math.floor(data.length / COL) * COL;
-        return i < COL
+        const base = Math.floor(data.length / Col) * Col;
+        return i < Col
           ? i + base >= data.length
-            ? base - COL + i
+            ? base - Col + i
             : base + i
-          : i - COL;
+          : i - Col;
       });
     }
 
     if (key.downArrow || input.toLowerCase() === 's') {
-      setIndex(i => (i + COL > data.length - 1 ? i % COL : i + COL));
+      setIndex(i => (i + Col > data.length - 1 ? i % Col : i + Col));
     }
 
     if (key.return) {
-      setter({ page: 'page', extra: data[index].portalPageId });
+      setter({ page: 'page', extra: data[index].portalPageUrlPath });
     }
   });
 
@@ -56,10 +56,10 @@ export default function TabsView() {
 
   return (
     <Box flexDirection="column">
-      {chunk(data, COL).map((tabs, i) => (
+      {chunk(data, Col).map((tabs, i) => (
         <Box key={i} marginTop={1}>
           {tabs.map((item, j) => (
-            <TabItem key={item.id} active={i * COL + j === index} item={item} />
+            <TabItem key={item.id} active={i * Col + j === index} item={item} />
           ))}
         </Box>
       ))}
@@ -75,7 +75,7 @@ const TabItem = ({ item, active }: { item: Tab; active: boolean }) => {
       paddingX={1}
       marginRight={1}>
       <Text bold={active} color={active ? 'cyan' : 'white'}>
-        {item.portalPageUrlPath}
+        {item.name}({item.portalPageUrlPath})
       </Text>
     </Box>
   );

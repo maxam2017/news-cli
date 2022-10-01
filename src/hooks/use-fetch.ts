@@ -1,4 +1,5 @@
-import { useEffect, useReducer, Reducer, useMemo, useRef } from 'react';
+import type { Reducer } from 'react';
+import { useEffect, useReducer, useMemo, useRef } from 'react';
 import fetch from 'node-fetch';
 
 type State<T> = {
@@ -6,13 +7,13 @@ type State<T> = {
   status: 'init' | 'loading' | 'fetched' | 'error';
 };
 
-type ACTIONTYPE<T> =
+type ActionType<T> =
   | { type: 'INIT' }
   | { type: 'LOADING' }
   | { type: 'FETCHED'; payload: T }
   | { type: 'ERROR' };
 
-type APIReducer<T> = Reducer<State<T>, ACTIONTYPE<T>>;
+type ApiReducer<T> = Reducer<State<T>, ActionType<T>>;
 
 function merge<T>(a: T, b: T): T {
   if (typeof a === 'undefined') return b;
@@ -41,7 +42,7 @@ export default function useFetch<T = unknown, S = T>(
   options?: { refresh?: boolean; transform?(raw: S): T },
 ) {
   const optionsRef = useRef(options);
-  const [state, dispatch] = useReducer<APIReducer<T>>(
+  const [state, dispatch] = useReducer<ApiReducer<T>>(
     (state, action) => {
       switch (action.type) {
         case 'INIT':

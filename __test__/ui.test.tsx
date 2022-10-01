@@ -2,13 +2,13 @@ import React from 'react';
 import { test, expect } from '@jest/globals';
 import { render } from 'ink-testing-library';
 import NewsEntry from '../src/components/news-entry';
-import { News } from '../src/types';
+import type { News } from '../src/types';
 
 // https://github.com/chalk/ansi-regex/blob/main/index.js#L3
-const ANSI_REGEXP =
+const AnsiRegexp =
   /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g;
 
-const MOCK_NEWS: News = {
+const MockNews: News = {
   id: '146639083',
   title: 'iOS版Google App藏彩蛋 開啟分頁就能玩彈珠台',
   excerpt:
@@ -21,7 +21,7 @@ const MOCK_NEWS: News = {
 };
 
 test('title and excerpt should be contained', () => {
-  const { lastFrame } = render(<NewsEntry item={MOCK_NEWS} />);
-  const result = lastFrame()?.replace(ANSI_REGEXP, '')?.replaceAll('\n', '');
-  expect(result).toMatch(MOCK_NEWS.title);
+  const { lastFrame } = render(<NewsEntry item={MockNews} />);
+  const result = lastFrame()?.replace(AnsiRegexp, '')?.replaceAll('\n', '');
+  expect(result).toMatch(MockNews.title);
 });

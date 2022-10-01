@@ -1,13 +1,13 @@
 import { Box, Text, useInput } from 'ink';
 import React, { useState } from 'react';
 
-import { Listing } from '../types';
+import type { Listing } from '../types';
 import { useConfigSetter } from '../hooks/use-config';
 import ListingView from './listing-view';
 
-interface Props {
+type Props = {
   items: Listing[];
-}
+};
 
 export default function ListCarousel({ items }: Props) {
   const [index, setIndex] = useState(0);

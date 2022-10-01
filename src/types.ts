@@ -1,4 +1,4 @@
-interface RawNews {
+type RawNews = {
   id: string;
   title: string;
   shortDescription: string;
@@ -15,9 +15,9 @@ interface RawNews {
     type: string;
     hash: string;
   };
-}
+};
 
-interface News {
+type News = {
   id: string;
   title: string;
   excerpt: string;
@@ -25,25 +25,25 @@ interface News {
   publishedAt?: string;
   url: string;
   thumbnail: string;
-}
+};
 
-interface Tab {
+type Tab = {
   id: string;
   portalPageId: string;
   name: string;
   portalPageUrlPath: string;
   fontColor: string;
-}
+};
 
-interface RawPage {
+type RawPage = {
   id: string;
   name: string;
   urlPath: string;
   type: string;
   modules: Module[];
-}
+};
 
-interface Module {
+type Module = {
   id: string;
   type: string;
   name: string;
@@ -51,18 +51,18 @@ interface Module {
   color: string;
   listings: Listing[];
   adArticleListing?: Listing[];
-}
+};
 
-interface Listing {
+type Listing = {
   id: string;
   offset: number;
   length: number;
-}
+};
 
-interface Page {
+type Page = {
   id: string;
   name: string;
   listings: Listing[];
-}
+};
 
-export { RawNews, RawPage, News, Page, Tab, Listing };
+export type { RawNews, RawPage, News, Page, Tab, Listing };

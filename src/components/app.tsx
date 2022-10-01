@@ -23,7 +23,7 @@ export default function App() {
   }
 
   if (config.page === 'page' && config.extra) {
-    return <PageView portalPageId={config.extra} />;
+    return <PageView portalPageUrlPath={config.extra} />;
   }
 
   return null;

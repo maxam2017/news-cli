@@ -1,12 +1,12 @@
 import uniqby from 'lodash.uniqby';
-import { Page, RawPage } from '../types';
+import type { Page, RawPage } from '../types';
 import useFetch from './use-fetch';
 
-const baseUrl = 'https://today.line.me/api/v6/portals/tw/pages';
+const baseUrl = 'https://today.line.me/webapi/portal/page';
 
-export default function usePage(portalPageId: string) {
-  return useFetch<Page, RawPage>(`${baseUrl}/${portalPageId}`, {
-    transform: page => {
+export default function usePage(portalPageUrlPath: string) {
+  return useFetch<Page, RawPage>(`${baseUrl}/${portalPageUrlPath}?country=tw`, {
+    transform(page) {
       return {
         id: page.id,
         name: page.name,

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-export interface Context {
+export type Context = {
   page: 'tab' | 'page';
   extra?: string;
-}
+};
 
 function noop() {}
 export const ConfigContext = React.createContext<Context>({ page: 'tab' });
@@ -13,10 +13,10 @@ export const ConfigSetterContext =
 export function ConfigProvider({
   children,
 }: React.PropsWithChildren<Record<string, unknown>>) {
-  const [state, setter] = useState<Context>({ page: 'tab' });
+  const [state, setState] = useState<Context>({ page: 'tab' });
 
   return (
-    <ConfigSetterContext.Provider value={setter}>
+    <ConfigSetterContext.Provider value={setState}>
       <ConfigContext.Provider value={state}>{children}</ConfigContext.Provider>
     </ConfigSetterContext.Provider>
   );

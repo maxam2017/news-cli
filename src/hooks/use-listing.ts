@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { RawNews, News } from '../types';
+import type { RawNews, News } from '../types';
 import useFetch from './use-fetch';
 
 const baseUrl = 'https://today.line.me/api/v6/listings';
@@ -9,7 +9,7 @@ export default function useListing(
   parameters: { offset: number; length: number },
 ) {
   return useFetch<News[], { items: RawNews[] }>(
-    `${baseUrl}/${listingId}?offset=${parameters.offset}&length=${parameters.length}`,
+    `${baseUrl}/${listingId}?offset=${parameters.offset}&length=${parameters.length}&country=tw`,
     {
       transform: data =>
         data.items.map(raw => ({
